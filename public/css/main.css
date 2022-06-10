@@ -1,0 +1,59 @@
+
+@font-face{
+    font-family: 'new';
+    src: url('../fonts/Quicksand-Regular.ttf');
+}
+@font-face{
+    font-family: 'newBold';
+    src: url('../fonts/Quicksand-Bold.ttf');
+}
+body{
+    font-family: 'new';
+}
+body::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: none;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background:rgba(0, 0, 0, 0.6) ; 
+}
+body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 10px;
+}
+#my-header{
+    font-family: 'newBold';
+}
+
+a.my-link{
+    color: black;
+}
+.my-link0>li>a{
+    color:white;
+    transition: border-bottom 0.5s ;
+    transition: all 0.5s;
+}
+.my-link0>li>a:hover{
+    border-bottom: 1px solid rgb(53, 198, 255);
+    color: rgb(53, 198, 255);
+}
+.my-form{
+    display: inline-block;
+}
+
+
+.my-bd{
+    background-image: url('../img/Project_4-09.jpg');
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+}
+.my-section{
+    padding-top: 25vh;
+    margin: 0px -2.3vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: inherit;
+}

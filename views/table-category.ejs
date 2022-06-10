@@ -1,0 +1,59 @@
+<%- include('./partes/head.ejs') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-8">
+                <h1>Lista das Categorias</h1>
+            </div>
+            <div class="col-2">
+                <a href="/categories/new-category" class="btn btn-primary">Nova Categoria</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="offset-1"></div>
+            <div class="col-10">
+                <table action="" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th><th>Titulo</th><th>Slug</th><th>Acções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% myCategory.forEach(category => {%>
+                            <tr>
+                                <td><%= category.id %></td>
+                                <td><%= category.title %></td>
+                                <td><%= category.slug %> </td>
+                                <td>
+                                    <form onsubmit="confirmDel(event)" class="my-form" method="POST" action="/categories/delete-category">
+                                        <input type="hidden" name="idCat" value="<%= category.id%>">
+                                        <input class="btn btn-danger" type="submit" value="Apagar">
+                                    </form>&shy;
+                                    <form class="my-form" action="/categories/update-category" method="post">
+                                        <input type="hidden" name="cat" value="<%= category.id%>">
+                                        <input type="hidden" name="updateText" value="<%= category.title%>">
+                                        <input class="btn btn-success" type="submit" value="Actualizar">
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }); %> 
+                    </tbody>
+                </table>
+            </div>
+            <div class="offset-1"></div>
+        </div>
+    </div>
+    <script>
+        var confirmDel=function(event){
+            //event.preventDefault();//Permite travar a submissão do formulÁrio
+            const answer=window.confirm('Queres delectar essa Categoria?')
+            if(answer){
+
+            }else{
+                event.preventDefault();
+            }
+            
+        }
+    </script>
+<%- include('./partes/footer.ejs') %> 

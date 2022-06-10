@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>SelfBlog</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row bg-dark p-1">
+            <div class="col-sm-6 col-2">
+                <h1 style="color:white;"><a style="color: white; text-decoration: none;" href="/home-page">Self<span id="my-header" style="color:rgb(53, 198, 255);">Blog</span></a></h1>   
+            </div>
+            <div class="col-10 col-sm-6">
+                <ul class="nav justify-content-end my-link0">
+                    <li style="padding:auto 1px" class="nav-item">
+                        <a class="nav-link"  href="/home-page">Home</a>
+                    </li>
+                    <li style="padding:auto 1px" class="nav-item">
+                        <div style="margin-top:2px" class="dropdown">
+                            <a style="border:0px solid white;" class="btn btn-secondary bg-transparent dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Categorias
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <% category.forEach(element => { %>
+                                <a class="dropdown-item" href="/article/<%= element.slug %>/<%=element.id%>">
+                                    <%= element.title %>
+                                </a>
+                              <% }) %>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="padding:auto 1px" class="nav-item">
+                        <a class="nav-link"  href="">Categoria</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>

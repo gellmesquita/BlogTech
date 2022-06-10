@@ -1,0 +1,58 @@
+<%- include('./partes/head.ejs') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <h1>Lista de Artigos</h1>
+            </div>
+            <div class="col-2">
+                <a href="/article/new-article" class="btn btn-primary">Novo Artigo</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table action="" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th><th>Titulo</th><th>Slug</th><th>Categoria</th><th>Acções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <% article.forEach(element => { %>
+                            <tr>
+                                <td><%= element.id %> </td>
+                                <td><%= element.type %> </td>
+                                <td><%= element.slug %> </td>
+                                <td><%= element.Category.title %> </td>
+                                <td>
+                                    <form onsubmit="confirmDel(event)" class="my-form" method="POST" action="/article/delete-article">
+                                        <input type="hidden" name="id" value="<%= element.id%>">
+                                        <input class="btn btn-danger" type="submit" value="Del">
+                                    </form>
+                                    <form class="my-form" action="/article/update-article" method="post">
+                                        <input type="hidden" name="up" value="<%= element.id%>">
+                                        <input class="btn btn-success" type="submit" value="Up">
+                                    </form>
+                                    <form class="my-form" action="/article/<%= element.slug %> " method="GET">
+                                        <input class="btn btn-info" type="submit" value="View">
+                                    </form>
+                                </td>
+                            </tr>
+                       <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        var confirmDel=function(event){
+            //event.preventDefault();//Permite travar a submissão do formulÁrio
+            const answer=window.confirm('Queres delectar esse Artigo?')
+            if(answer){
+
+            }else{
+                event.preventDefault();
+            }
+            
+        }
+    </script>
+<%- include('./partes/footer.ejs') %> 

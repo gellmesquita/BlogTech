@@ -1,0 +1,38 @@
+<%- include('./partes/head.ejs') %> 
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-header bg-dark">
+                        <h2 style="color:white">Crie um novo Artigo</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="/article/save-article" method="POST">
+                            <input type="text" name="title" id="" class="form-control" placeholder="Dê um titulo ao Artigo" required>
+                            <br>
+                            <input type="text" name="summary" id="" class="form-control" placeholder="Dê uma breve descrição do Artigo" required>
+                            <br>
+                            <textarea placeholder="Crie um Artigo" name="article" id="tinymceUser" class="form-control" cols="15" rows="12"></textarea><br>
+                            <select style="display: inline-block;" class="form-control w-50" name="idCategory" id="category">
+                                <% category.forEach(element => { %>
+                                   <option value="<%= element.id %> "><%= element.title %></option>     
+                                <% }) %>
+                            </select>
+                            <input class="btn btn-dark m-2" type="submit" value="Submeter Artigo">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+<%- include('./partes/footer.ejs') %>
+<script>
+    tinymce.init({
+        language:'pt_BR',
+        selector: '#tinymceUser',
+        plugins:'lists color advlist print image autolink preview hr link searchreplace wordcount fullscreen insertdatatime media save table emoticons'
+    });
+</script> 
+

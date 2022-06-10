@@ -1,0 +1,99 @@
+<%- include('./partes/header-home-page')%>
+    <div class="bg-light">
+        <div style="color:white" class="container-fluid my-bd ">
+            <center class="my-section">
+                <section>
+                    <h1 style="font-weight:900;font-size: 3ch;">Bem-vindo ao SelBlog</h1>
+                    <p style="text-align: center; width:34%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero labore laborum soluta nostrum perferendis nobis pariatur quidem neque iure, praesentium culpa ducimus. Ea recusandae laboriosam asperiores nemo minima repellat cumque!</p>
+                </section>
+            </center>
+        </div>
+        <div style="text-align: center; color:white; height: 30vh;" class="container-fluid bg-dark">
+            <h1 class="pt-4">
+                Veja Alguns Artigos Interessantes
+            </h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident ipsum, minima nihil harum fugiat vero, ipsam libero fuga laudantium quo sunt alias iste, aspernatur exercitationem. Quibusdam facere commodi delectus voluptatum!</p>
+            <img src="../icons/outline_verified_white_24dp.png" alt="">
+        </div><br>
+        <div class="container">
+            <% article.forEach(element => { %>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="card">
+                            <div style="color:white" class="card-header bg-dark">
+                                <h2><%= element.type %></h2> 
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <%= element.summary %> 
+                                </p>
+                                <form action="/article/<%=element.slug %>" method="GET">
+                                    <input type="submit" class="btn btn-dark" value="Ver Mais ...">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div><br>
+            <% }) %>
+        </div><br><br>
+        <div class="container-fluid">
+            <div class="row">
+                <div style="background-image: url('../img/RESPONDA-PESQUISAS.jpg'); background-size: contain; height: 70vh;" class="col-6">
+
+                </div>
+                <div style="height: 70vh;" class="col-6">
+                    <h1>Fale Conosco!</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae voluptate molestias, velit modi nobis totam exercitationem perspiciatis rerum, a maxime, blanditiis unde nihil. Qui non obcaecati provident incidunt quis magnam!
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae voluptate molestias, velit modi nobis totam exercitationem perspiciatis rerum, a maxime, blanditiis unde nihil. Qui non obcaecati provident incidunt quis magnam!
+                    </p>
+                    <input placeholder="Coloque seu Email" type="email" name="email" id="email" class="form-control"><br>
+                    <input type="submit" class="btn btn-primary" value="Submeter">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row bg-dark p-3" style="height: 38vh;color:white;">
+                <div class="col-4">
+                    <h>Artigo 1</h>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam placeat repudiandae ea accusamus ducimus aut, cum deserunt dolorum sit quis aliquam fugiat molestias ullam repellendus
+                    </p>
+                    <p>
+                        gellmesquita@gmail.com
+                    </p>
+                </div> 
+                <div class="col-4">
+                    <h>Artigo 2</h>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam placeat repudiandae ea accusamus ducimus aut, cum deserunt dolorum sit quis aliquam fugiat molestias ullam repellendus
+                    </p>
+                    <p>
+                        gellmesquita@gmail.com
+                    </p>
+                </div>     
+                <div class="col-4">
+                    <h>Artigo 3</h>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam placeat repudiandae ea accusamus ducimus aut, cum deserunt dolorum sit quis aliquam fugiat molestias ullam repellendus
+                    </p>
+                    <p>
+                        gellmesquita@gmail.com
+                    </p>
+                </div>             
+            </div>
+            <div class="row">
+                <div class="col-12 bg-dark" style="color:white">
+                    <p style="text-align: center;">&copy;<b>gellmesquita@gmail</b>.com</p>
+                </div>
+            </div> 
+        </div>
+
+    </div>
+
+<%- include('./partes/footer')%>
+
